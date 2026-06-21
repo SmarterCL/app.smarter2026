@@ -4,18 +4,17 @@ import { useEffect, useMemo, useState, type ReactNode } from "react"
 import type { User } from "@supabase/supabase-js"
 import { createBrowserSupabaseClient } from "@/lib/supabase-browser"
 
-type ClientUser = {
+export type SupabaseClientUser = {
   id: string
   fullName: string
   firstName: string
   imageUrl: string
+  email: string
   lastSignInAt: Date | null
-  primaryEmailAddress: {
-    emailAddress: string
-  } | null
+  createdAt: Date | null
 }
 
-const toClientUser = (user: User | null): ClientUser | null => {
+const toClientUser = (user: User | null): SupabaseClientUser | null => {
   if (!user) return null
 
   const email = user.email || ""
@@ -31,14 +30,15 @@ const toClientUser = (user: User | null): ClientUser | null => {
     fullName,
     firstName: fullName.split(/\s+/)[0] || fullName,
     imageUrl: typeof user.user_metadata?.avatar_url === "string" ? user.user_metadata.avatar_url : "",
+    email,
     lastSignInAt: user.last_sign_in_at ? new Date(user.last_sign_in_at) : null,
-    primaryEmailAddress: email ? { emailAddress: email } : null,
+    createdAt: user.created_at ? new Date(user.created_at) : null,
   }
 }
 
-export function useUser() {
+export function useSupabaseUser() {
   const supabase = useMemo(() => createBrowserSupabaseClient(), [])
-  const [user, setUser] = useState<ClientUser | null>(null)
+  const [user, setUser] = useState<SupabaseClientUser | null>(null)
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
@@ -70,28 +70,14 @@ export function useUser() {
   }
 }
 
-export function useAuth() {
-  const { isLoaded, isSignedIn, user } = useUser()
+export function useSupabaseAuth() {
+  const { isLoaded, isSignedIn, user } = useSupabaseUser()
 
   return {
     isLoaded,
     isSignedIn,
     userId: user?.id ?? null,
   }
-}
-
-export function UserButton(_props: Record<string, unknown>) {
-  const supabase = useMemo(() => createBrowserSupabaseClient(), [])
-
-  return (
-    <button
-      className="rounded-md border px-3 py-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
-      onClick={() => supabase.auth.signOut()}
-      type="button"
-    >
-      Salir
-    </button>
-  )
 }
 
 export function SignOutButton({ children }: { children?: ReactNode; [key: string]: unknown }) {
@@ -102,12 +88,4 @@ export function SignOutButton({ children }: { children?: ReactNode; [key: string
       {children || "Salir"}
     </button>
   )
-}
-
-export function SignInButton({ children }: { children?: ReactNode; [key: string]: unknown }) {
-  return <a href="/login">{children || "Ingresar"}</a>
-}
-
-export function SignUpButton({ children }: { children?: ReactNode; [key: string]: unknown }) {
-  return <a href="/login">{children || "Crear cuenta"}</a>
 }

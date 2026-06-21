@@ -13,7 +13,7 @@ import { WahaQrConnector } from "./WahaQrConnector"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Settings, LogOut, Bell, QrCode } from "lucide-react"
-import { useUser, SignOutButton } from "@/lib/client-auth"
+import { useSupabaseUser, SignOutButton } from "@/lib/supabase-auth-client"
 import Link from "next/link"
 import { TenantWizard } from "@/components/tenant-wizard"
 
@@ -33,7 +33,7 @@ async function readJsonSafely(response: Response) {
 }
 
 export function WorkspaceLayout() {
-  const { user } = useUser()
+  const { user } = useSupabaseUser()
   const [selectedConversationId, setSelectedConversationId] = useState<number | null>(null)
   const [selectedContactId, setSelectedContactId] = useState<number | null>(null)
   const [wahaStatus, setWahaStatus] = useState<WahaStatus>("unknown")
@@ -151,7 +151,7 @@ export function WorkspaceLayout() {
           </SignOutButton>
           {user && (
             <span className="hidden text-xs text-muted-foreground sm:inline">
-              {user.firstName || user.emailAddresses?.[0]?.emailAddress}
+              {user.firstName || user.email}
             </span>
           )}
         </div>

@@ -2,7 +2,7 @@ import crypto from "crypto"
 import { createClient } from "@supabase/supabase-js"
 
 const CODE_TTL_MINUTES = 10
-const WAHA_API_KEY = process.env.WAHA_API_KEY || process.env.WAHA_API_KEY_PLAIN || "waha-smarteros-2026-fixed-key-12345"
+const WAHA_API_KEY = process.env.WAHA_API_KEY || process.env.WAHA_API_KEY_PLAIN || ""
 const WAHA_SESSION = process.env.WAHA_VERIFICATION_SESSION || process.env.WAHA_SESSION || "default"
 
 const WAHA_BASE_URLS = [
@@ -111,6 +111,10 @@ export async function verifyPhoneCode(input: {
 }
 
 async function sendWahaText(phone: string, text: string) {
+  if (!WAHA_API_KEY) {
+    return { ok: false, error: "WAHA_API_KEY no configurado" }
+  }
+
   const chatId = `${phone}@c.us`
   const bodies = [
     { session: WAHA_SESSION, chatId, text },

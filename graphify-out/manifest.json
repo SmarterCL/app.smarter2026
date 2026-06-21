@@ -15,8 +15,8 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/next.config.mjs": {
-    "mtime": 1764009195.0,
-    "ast_hash": "a937239ca7e066692dcb71eca93d24cc",
+    "mtime": 1782053569.8930464,
+    "ast_hash": "e25783d8896b279d713a4bc2402b0538",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/next-env.d.ts": {
@@ -30,8 +30,8 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/package.json": {
-    "mtime": 1781987420.3735952,
-    "ast_hash": "4b1444500f7f2c4000bbe34d98dbf925",
+    "mtime": 1782055093.9492896,
+    "ast_hash": "57df95c05a788cc0c5f5008fe6286c4d",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/components.json": {
@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/registro/page.tsx": {
-    "mtime": 1781990453.7909224,
-    "ast_hash": "eb93658f2994fec2d0b9add609eaea64",
+    "mtime": 1781993343.1093767,
+    "ast_hash": "54ba149936994c26977c2309932c451e",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/auth/callback/route.ts": {
@@ -80,18 +80,13 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/workspace/page.tsx": {
-    "mtime": 1781990476.3688416,
-    "ast_hash": "ec9fd71eaa009e9478fa65e74647d03a",
-    "semantic_hash": ""
-  },
-  "/Users/mac/dev/junio/workspace/smarteros-workspace/app/demo-dashboard/page.tsx": {
-    "mtime": 1781967877.4726367,
-    "ast_hash": "09d9964627d34ef1a6db8e2ab643a84c",
+    "mtime": 1782053418.5153887,
+    "ast_hash": "ef92574c9f244af64bbb25f3c62822b8",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/dashboard/page.tsx": {
-    "mtime": 1781967877.4938626,
-    "ast_hash": "f24f51a0581640ce67bf70e379844df4",
+    "mtime": 1782053418.5139928,
+    "ast_hash": "c209de496647b87b83c5ca2786f8da8b",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/dashboard/tenant/new/page.tsx": {
@@ -105,13 +100,23 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/dashboard/onboarding/page.tsx": {
-    "mtime": 1781967877.4962413,
-    "ast_hash": "efabcd032e0a6f942b54cdb714a53dde",
+    "mtime": 1782053811.5885413,
+    "ast_hash": "01e3da3dfa7bbedf5de0189ee334c995",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/pago/page.tsx": {
     "mtime": 1781968294.6926634,
     "ast_hash": "b18c193d30980ee39110f2fb96db60d6",
+    "semantic_hash": ""
+  },
+  "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/phone-verification/verify/route.ts": {
+    "mtime": 1781998308.352223,
+    "ast_hash": "862aec57e80689c93104a659a8426c6b",
+    "semantic_hash": ""
+  },
+  "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/phone-verification/send/route.ts": {
+    "mtime": 1781998296.1664376,
+    "ast_hash": "06f9f1f7c670c1cf76e27a968a70a654",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/webhook/chatwoot/route.ts": {
@@ -130,8 +135,8 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/tenant/create/route.ts": {
-    "mtime": 1781991217.0064065,
-    "ast_hash": "a2acb46fe3a8afbba00648a4c146ba6d",
+    "mtime": 1781998276.8263533,
+    "ast_hash": "35c47c6bd50177a410ada78d2c6173fd",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/settings/route.ts": {
@@ -140,8 +145,8 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/contact/route.ts": {
-    "mtime": 1781967877.5866818,
-    "ast_hash": "8ac6a4be8b9f20691bf580c925db9ecb",
+    "mtime": 1782000743.8228405,
+    "ast_hash": "b41bfe65b71bc7073a6a231450b3bb30",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/chatwoot/[...path]/route.ts": {
@@ -160,8 +165,8 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/health/route.ts": {
-    "mtime": 1781967877.6204016,
-    "ast_hash": "bacc805d548786d33c13e00f7e867952",
+    "mtime": 1781999282.4510212,
+    "ast_hash": "52eef674810e7bd509a80c42b3b60742",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/contacts/test/route.ts": {
@@ -200,8 +205,8 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/mcp/invocations/recent/route.ts": {
-    "mtime": 1781968176.7382405,
-    "ast_hash": "1afc29828afe4110a240634d64576efb",
+    "mtime": 1782053808.2121882,
+    "ast_hash": "06b222cfa5cd6337d929ce78218cd857",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/mcp/tool/route.ts": {
@@ -210,13 +215,13 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/qr/generate/route.ts": {
-    "mtime": 1781967877.6615794,
-    "ast_hash": "ee5062761a3e098a102e70f058fde80a",
+    "mtime": 1781996368.1676192,
+    "ast_hash": "66f6d58361a6843fd2169c8808f0241a",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/scan/route.ts": {
-    "mtime": 1781967877.66486,
-    "ast_hash": "e367573b1e2a7f36227f5f0f34974780",
+    "mtime": 1781996368.1631296,
+    "ast_hash": "e44d24bbba1002eedc070499e1450a0c",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/tenants/list/route.ts": {
@@ -245,8 +250,8 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/ecocupon/validar/route.ts": {
-    "mtime": 1781967877.6842585,
-    "ast_hash": "c0edac7d6cd4cafd53ef941e0c01c0d7",
+    "mtime": 1781996368.166736,
+    "ast_hash": "90121053248f397fa373ca83334bb588",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/metabase/embed/route.ts": {
@@ -265,13 +270,13 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/flow/confirmation/route.ts": {
-    "mtime": 1781967877.691754,
-    "ast_hash": "43b4a34cf12f352cb1d3a3eb70463e1e",
+    "mtime": 1781996368.1656995,
+    "ast_hash": "e54eb10e93193a4ac483110b1933aa79",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/api/flow/create-order/route.ts": {
-    "mtime": 1781967877.692978,
-    "ast_hash": "24a28546ed54e782bcc7163ffe2adf02",
+    "mtime": 1781996368.1648493,
+    "ast_hash": "9542135cb419ba1035b174f82bd265c6",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/kpi/page.tsx": {
@@ -279,9 +284,14 @@
     "ast_hash": "2e28fb177fa4d0e6a325fa7b29acc264",
     "semantic_hash": ""
   },
+  "/Users/mac/dev/junio/workspace/smarteros-workspace/app/reset-password/page.tsx": {
+    "mtime": 1781996404.3122895,
+    "ast_hash": "aea3cd0ef7ed966b3ff27e72464442f7",
+    "semantic_hash": ""
+  },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/pricing/page.tsx": {
-    "mtime": 1781990437.2777715,
-    "ast_hash": "8e9cdf9d654ffd15fa281c77a92479e6",
+    "mtime": 1782053665.2706537,
+    "ast_hash": "d2718f3c1fafa4e8de4e869dae72b3a9",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/app/login/page.tsx": {
@@ -297,11 +307,6 @@
   "/Users/mac/dev/junio/workspace/smarteros-workspace/mcp/tools/fastapi-proxy.ts": {
     "mtime": 1781985311.6140032,
     "ast_hash": "c956f955b45ba435bcd6b9e646ea66b5",
-    "semantic_hash": ""
-  },
-  "/Users/mac/dev/junio/workspace/smarteros-workspace/mcp/server/index.ts": {
-    "mtime": 1781968303.0013719,
-    "ast_hash": "5014e638b51389f12cfa2432752f47a4",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/supabase/seed.sql": {
@@ -332,6 +337,11 @@
   "/Users/mac/dev/junio/workspace/smarteros-workspace/supabase/migrations/20260620000400_ecocupon_system.sql": {
     "mtime": 1781957629.1405857,
     "ast_hash": "463e0b19dc53f3bdab789062ade1e7ba",
+    "semantic_hash": ""
+  },
+  "/Users/mac/dev/junio/workspace/smarteros-workspace/supabase/migrations/20260620230500_phone_verification_waha.sql": {
+    "mtime": 1781998321.528411,
+    "ast_hash": "b059c9b6c42d94609690a7256a517f63",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/supabase/migrations/20260620000300_scan_events.sql": {
@@ -375,13 +385,8 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/integrations/email-templates.ts": {
-    "mtime": 1781862555.0,
-    "ast_hash": "ef694982753da163cef55b67d5d36939",
-    "semantic_hash": ""
-  },
-  "/Users/mac/dev/junio/workspace/smarteros-workspace/components/auth-debug.tsx": {
-    "mtime": 1781967877.7065203,
-    "ast_hash": "8c3975d81f8bf15f50a6c85aa0a58fe6",
+    "mtime": 1782000779.9695966,
+    "ast_hash": "949a63e07b9d60cacee686f4b8b7c3f8",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/components/theme-provider.tsx": {
@@ -389,39 +394,9 @@
     "ast_hash": "3cd89febe6ca9cb784ba567481e50b5d",
     "semantic_hash": ""
   },
-  "/Users/mac/dev/junio/workspace/smarteros-workspace/components/demo-mode-toggle.tsx": {
-    "mtime": 1781968275.6111152,
-    "ast_hash": "5fd665c78aa1d753d2babae30d822e9f",
-    "semantic_hash": ""
-  },
-  "/Users/mac/dev/junio/workspace/smarteros-workspace/components/service-card.tsx": {
-    "mtime": 1781967877.9363148,
-    "ast_hash": "0e8674f6f590938c48acfb4f8723dbc6",
-    "semantic_hash": ""
-  },
-  "/Users/mac/dev/junio/workspace/smarteros-workspace/components/dashboard-content.tsx": {
-    "mtime": 1781968287.0286014,
-    "ast_hash": "03257419bb9f31e0291d2be6f47691c0",
-    "semantic_hash": ""
-  },
-  "/Users/mac/dev/junio/workspace/smarteros-workspace/components/tenant-selector.tsx": {
-    "mtime": 1781967877.9557014,
-    "ast_hash": "c3751e94afff2fb258bcdc6b5f6ae404",
-    "semantic_hash": ""
-  },
-  "/Users/mac/dev/junio/workspace/smarteros-workspace/components/demo-dashboard-content.tsx": {
-    "mtime": 1781967877.957978,
-    "ast_hash": "3a3316fcf375af1c8dd5b219f5483089",
-    "semantic_hash": ""
-  },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/components/mcp-console-client.tsx": {
     "mtime": 1781985091.8727908,
     "ast_hash": "7740ebe2d99cbd8916d7666855d63322",
-    "semantic_hash": ""
-  },
-  "/Users/mac/dev/junio/workspace/smarteros-workspace/components/auth-form.tsx": {
-    "mtime": 1781968265.9986687,
-    "ast_hash": "e9cd6a74cd15e7606cc5bc862ef63f08",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/components/background-fx.tsx": {
@@ -429,24 +404,9 @@
     "ast_hash": "47036cbe3d471d7c511da7daf0e32efd",
     "semantic_hash": ""
   },
-  "/Users/mac/dev/junio/workspace/smarteros-workspace/components/auth-checker.tsx": {
-    "mtime": 1781967877.964848,
-    "ast_hash": "71182a3e3270f9fdeccbf566db078de8",
-    "semantic_hash": ""
-  },
-  "/Users/mac/dev/junio/workspace/smarteros-workspace/components/setup-guide.tsx": {
-    "mtime": 1781970699.4411645,
-    "ast_hash": "8b992b997b78574975bae3a314b99d3a",
-    "semantic_hash": ""
-  },
-  "/Users/mac/dev/junio/workspace/smarteros-workspace/components/chatwoot-widget.tsx": {
-    "mtime": 1781967877.9719296,
-    "ast_hash": "28a3ac5960b44ac5581a5df18b66b3fa",
-    "semantic_hash": ""
-  },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/components/login-form.tsx": {
-    "mtime": 1781990460.7740912,
-    "ast_hash": "cc7a6c8ca674b7a45b7f273343def2f0",
+    "mtime": 1782053666.9651072,
+    "ast_hash": "d3a941a1f6a4eb4f4d54def244937967",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/components/theme-toggle.tsx": {
@@ -514,11 +474,6 @@
     "ast_hash": "6d8cd7ab771b7e2de5f0205d46363a2c",
     "semantic_hash": ""
   },
-  "/Users/mac/dev/junio/workspace/smarteros-workspace/components/ui/chart.tsx": {
-    "mtime": 1781967877.7259607,
-    "ast_hash": "4414d0660c43f1743927fad1d66d110f",
-    "semantic_hash": ""
-  },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/components/ui/hover-card.tsx": {
     "mtime": 1781967877.7279482,
     "ast_hash": "56167ab45b993cb73e7606b90b8d71f9",
@@ -582,11 +537,6 @@
   "/Users/mac/dev/junio/workspace/smarteros-workspace/components/ui/switch.tsx": {
     "mtime": 1781967877.7550344,
     "ast_hash": "368340dd3f28bce468a5ffdebb321520",
-    "semantic_hash": ""
-  },
-  "/Users/mac/dev/junio/workspace/smarteros-workspace/components/ui/calendar.tsx": {
-    "mtime": 1781967877.755947,
-    "ast_hash": "5565bf0486a064d7a0694a3328d6597b",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/components/ui/breadcrumb.tsx": {
@@ -720,8 +670,8 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/components/workspace/WorkspaceLayout.tsx": {
-    "mtime": 1781967877.9453318,
-    "ast_hash": "289fe786a9b5e1dd438bab5d46a1863d",
+    "mtime": 1782053434.7331545,
+    "ast_hash": "8b6c05d6eed36ffc957836c564ca4f6a",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/components/workspace/HermesPanel.tsx": {
@@ -735,8 +685,8 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/components/workspace/page.tsx": {
-    "mtime": 1781990482.0469055,
-    "ast_hash": "0f827e31cc8b6b3ff4a4efeb3a44f4e9",
+    "mtime": 1782053418.5162277,
+    "ast_hash": "6584c084dfd278742d716094766914f7",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/hooks/use-mobile.tsx": {
@@ -750,8 +700,8 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/scripts/env-verify.sh": {
-    "mtime": 1781970704.883504,
-    "ast_hash": "beb9a973e6ce182118098d558188928d",
+    "mtime": 1782009664.1727712,
+    "ast_hash": "ed0f8d57bcf520d073692b912ffb8384",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/scripts/monitor-backend.ts": {
@@ -770,18 +720,18 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/scripts/env-audit.ts": {
-    "mtime": 1781970701.7347004,
-    "ast_hash": "cc8f90b671d6650c4743ece5a1927501",
+    "mtime": 1782009662.481309,
+    "ast_hash": "b00bca1482ef8ad2c32a946fe8c98f77",
     "semantic_hash": ""
   },
-  "/Users/mac/dev/junio/workspace/smarteros-workspace/lib/client-auth.tsx": {
-    "mtime": 1781967913.51059,
-    "ast_hash": "f0fe81d377c8386481872bde424baf0a",
+  "/Users/mac/dev/junio/workspace/smarteros-workspace/lib/supabase-auth-client.tsx": {
+    "mtime": 1782053951.830821,
+    "ast_hash": "7cbc347836cc911a4d9126f0a9bff279",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/lib/supabase-server.ts": {
-    "mtime": 1781967877.984743,
-    "ast_hash": "28dfc73b371e60c5fc0c01c6326c6e8b",
+    "mtime": 1781996352.3421295,
+    "ast_hash": "aa9403fe63168674d7886060ecf3789a",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/lib/plans.ts": {
@@ -789,9 +739,19 @@
     "ast_hash": "a69fc9f66e984b2da114ffcea37e01b0",
     "semantic_hash": ""
   },
+  "/Users/mac/dev/junio/workspace/smarteros-workspace/lib/smtp.ts": {
+    "mtime": 1782000715.4782214,
+    "ast_hash": "a0f71e1e6a6aab6886b5f36da9de94b2",
+    "semantic_hash": ""
+  },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/lib/utils.ts": {
     "mtime": 1781967877.9869134,
     "ast_hash": "5a6fd53fdcf2be529e9cc0b718fde352",
+    "semantic_hash": ""
+  },
+  "/Users/mac/dev/junio/workspace/smarteros-workspace/lib/phone-verification.ts": {
+    "mtime": 1781998245.632986,
+    "ast_hash": "de1f515fbdf872ee710a09c37c6fa756",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/lib/chatwoot-client.ts": {
@@ -805,8 +765,8 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/lib/supabase.ts": {
-    "mtime": 1781985427.3900638,
-    "ast_hash": "7e2d2cf29641caf99111f621e853bea8",
+    "mtime": 1782053809.8267365,
+    "ast_hash": "3965451a4ea6ce351774b8a26eacb47d",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/lib/auth.ts": {
@@ -820,8 +780,8 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/docker-compose.local.yml": {
-    "mtime": 1781987321.6778882,
-    "ast_hash": "fba94c2974154c4fd489f4f7612f7573",
+    "mtime": 1781996339.3103304,
+    "ast_hash": "3096cdf47e30cf2e01ed5d52b7bfb796",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/docker-compose.yml": {
@@ -830,8 +790,8 @@
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/pnpm-workspace.yaml": {
-    "mtime": 1781970689.8983297,
-    "ast_hash": "c3dd7262847d512cf502a50accad8a9e",
+    "mtime": 1782052847.659681,
+    "ast_hash": "11cd21e2f357e142eddd285d5ee8032d",
     "semantic_hash": ""
   },
   "/Users/mac/dev/junio/workspace/smarteros-workspace/public/placeholder-logo.svg": {

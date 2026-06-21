@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { useUser } from "@/lib/client-auth"
+import { useSupabaseUser } from "@/lib/supabase-auth-client"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -25,7 +25,7 @@ const mockTenant = {
 }
 
 export default function DashboardPage() {
-  const { user, isLoaded } = useUser()
+  const { user, isLoaded } = useSupabaseUser()
   const [activeTab, setActiveTab] = useState("overview")
   const [qrDataUrl, setQrDataUrl] = useState<string>("")
   const [qrLoading, setQrLoading] = useState(false)

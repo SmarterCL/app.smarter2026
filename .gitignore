@@ -28,6 +28,9 @@ yarn-error.log*
 caddy_data/
 caddy_config/
 
+# graphify generated cache
+graphify-out/cache/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

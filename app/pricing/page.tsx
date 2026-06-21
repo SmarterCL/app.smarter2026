@@ -140,13 +140,13 @@ export default function PricingPage() {
         {/* Value Props */}
         <div className="mb-12 grid gap-4 sm:grid-cols-3">
           <div className="rounded-xl border border-dashed border-emerald-400/40 bg-emerald-500/10 p-4 text-center">
-            <p className="text-sm font-semibold text-emerald-600">"QR que vende solo"</p>
+            <p className="text-sm font-semibold text-emerald-600">QR que vende solo</p>
           </div>
           <div className="rounded-xl border border-dashed border-blue-400/40 bg-blue-500/10 p-4 text-center">
-            <p className="text-sm font-semibold text-blue-600">"Mesa sin garzón"</p>
+            <p className="text-sm font-semibold text-blue-600">Mesa sin garzón</p>
           </div>
           <div className="rounded-xl border border-dashed border-purple-400/40 bg-purple-500/10 p-4 text-center">
-            <p className="text-sm font-semibold text-purple-600">"Captura clientes con WiFi"</p>
+            <p className="text-sm font-semibold text-purple-600">Captura clientes con WiFi</p>
           </div>
         </div>
 

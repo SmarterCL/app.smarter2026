@@ -17,7 +17,7 @@ const WAHA_BASE_URLS = [
   "http://localhost:3003",
 ].filter(Boolean) as string[]
 const SERVICE_API_KEY = process.env.SERVICE_API_KEY || ""
-const WAHA_API_KEY = process.env.WAHA_API_KEY || process.env.WAHA_API_KEY_PLAIN || "waha-smarteros-2026-fixed-key-12345"
+const WAHA_API_KEY = process.env.WAHA_API_KEY || process.env.WAHA_API_KEY_PLAIN || ""
 
 async function parseResponsePayload(response: Response) {
   const contentType = response.headers.get("content-type") || ""
@@ -70,6 +70,10 @@ async function proxyWithFallback(paths: string[], options: RequestInit = {}) {
 }
 
 async function proxyWahaDirect(paths: string[], options: RequestInit = {}) {
+  if (!WAHA_API_KEY) {
+    return NextResponse.json({ error: "WAHA_API_KEY not configured" }, { status: 500 })
+  }
+
   let lastResponse: Response | null = null
   let lastPayload: unknown = null
 
@@ -108,6 +112,10 @@ async function proxyWahaDirect(paths: string[], options: RequestInit = {}) {
 }
 
 async function fetchWahaDirect(path: string, options: RequestInit = {}) {
+  if (!WAHA_API_KEY) {
+    throw new Error("WAHA_API_KEY not configured")
+  }
+
   let lastResponse: Response | null = null
   let lastError: unknown = null
 

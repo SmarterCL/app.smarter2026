@@ -2,11 +2,11 @@
 
 import { useEffect } from "react"
 import { useRouter } from "next/navigation"
-import { useUser } from "@/lib/client-auth"
+import { useSupabaseUser } from "@/lib/supabase-auth-client"
 import { WorkspaceLayout } from "@/components/workspace/WorkspaceLayout"
 
 export default function WorkspacePage() {
-  const { user, isLoaded } = useUser()
+  const { user, isLoaded } = useSupabaseUser()
   const router = useRouter()
 
   useEffect(() => {

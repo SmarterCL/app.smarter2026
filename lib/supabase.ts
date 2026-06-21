@@ -234,7 +234,6 @@ export async function logMcpInvocation(entry: {
   }
   const { error } = await supabase.from('mcp_invocations').insert(payload)
   if (error) {
-    // eslint-disable-next-line no-console
     console.warn('[MCP] log insert failed', error.message)
   }
 }

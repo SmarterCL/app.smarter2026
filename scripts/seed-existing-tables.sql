@@ -16,10 +16,10 @@ INSERT INTO contacts (name, email, source, status, was_notified) VALUES
 
 -- Insert sample API keys (using demo user IDs)
 INSERT INTO api_keys (user_id, key_name, api_key, is_active) VALUES
-  ('demo-user-1', 'Production API', 'sk-prod-1234567890abcdef', true),
-  ('demo-user-1', 'Development API', 'sk-dev-abcdef1234567890', true),
-  ('demo-user-2', 'Testing API', 'sk-test-fedcba0987654321', false),
-  ('demo-user-2', 'Staging API', 'sk-stage-1357924680acbd', true);
+  ('demo-user-1', 'Production API', 'demo_prod_key_redacted', true),
+  ('demo-user-1', 'Development API', 'demo_dev_key_redacted', true),
+  ('demo-user-2', 'Testing API', 'demo_test_key_redacted', false),
+  ('demo-user-2', 'Staging API', 'demo_stage_key_redacted', true);
 
 -- Insert sample QR codes
 INSERT INTO qr_codes (user_id, bot_id, description, is_active) VALUES

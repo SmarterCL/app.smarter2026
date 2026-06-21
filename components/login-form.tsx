@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { createBrowserSupabaseClient } from "@/lib/supabase-browser"
 import { Button } from "@/components/ui/button"
@@ -9,21 +9,16 @@ import { Label } from "@/components/ui/label"
 
 export function LoginForm() {
   const router = useRouter()
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState(() => {
+    if (typeof window === "undefined") return ""
+    return new URLSearchParams(window.location.search).get("email") || ""
+  })
   const [password, setPassword] = useState("")
   const [error, setError] = useState<string | null>(null)
   const [notice, setNotice] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
   const supabase = createBrowserSupabaseClient()
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    const emailParam = params.get("email")
-    if (emailParam) {
-      setEmail(emailParam)
-    }
-  }, [])
 
   const signInWithPassword = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()

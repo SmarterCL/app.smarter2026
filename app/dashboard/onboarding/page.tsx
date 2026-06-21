@@ -12,7 +12,6 @@ import { PLANS, type PlanId } from "@/lib/plans"
 
 interface TenantData {
   tenant_id: string
-  api_key: string
   plan: string
   status: string
   limits: {
@@ -93,25 +92,26 @@ function OnboardingDashboard() {
   }, [router, searchParams])
 
   useEffect(() => {
-    if (tenantData?.tenant_id) {
-      loadQRCode()
-    }
-  }, [tenantData])
+    const tenantId = tenantData?.tenant_id
+    if (!tenantId) return
 
-  const loadQRCode = async () => {
-    setIsLoadingQr(true)
-    try {
-      const response = await fetch(`/api/qr/generate?tenant_id=${tenantData.tenant_id}&format=dataURL`)
-      const data = await response.json()
-      if (data.dataUrl) {
-        setQrDataUrl(data.dataUrl)
+    const loadQRCode = async () => {
+      setIsLoadingQr(true)
+      try {
+        const response = await fetch(`/api/qr/generate?tenant_id=${tenantId}&format=dataURL`)
+        const data = await response.json()
+        if (data.dataUrl) {
+          setQrDataUrl(data.dataUrl)
+        }
+      } catch (error) {
+        console.error("Error loading QR code:", error)
+      } finally {
+        setIsLoadingQr(false)
       }
-    } catch (error) {
-      console.error("Error loading QR code:", error)
-    } finally {
-      setIsLoadingQr(false)
     }
-  }
+
+    loadQRCode()
+  }, [tenantData?.tenant_id])
 
   if (!tenantData) {
     return (
@@ -259,10 +259,10 @@ function OnboardingDashboard() {
               </CardContent>
             </Card>
 
-            {/* Credentials */}
+            {/* Tenant reference */}
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">Tus credenciales</CardTitle>
+                <CardTitle className="text-lg">Referencia del tenant</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-sm">
                 <div>
@@ -270,15 +270,6 @@ function OnboardingDashboard() {
                   <code className="block break-all rounded bg-muted px-2 py-1 text-xs font-mono">
                     {tenantData.tenant_id}
                   </code>
-                </div>
-                <div>
-                  <p className="text-muted-foreground">API Key</p>
-                  <code className="block break-all rounded bg-muted px-2 py-1 text-xs font-mono">
-                    {tenantData.api_key.substring(0, 20)}...
-                  </code>
-                  <p className="mt-1 text-xs text-amber-600">
-                    ⚠️ Guárdala en un lugar seguro. No se muestra completa por seguridad.
-                  </p>
                 </div>
               </CardContent>
             </Card>

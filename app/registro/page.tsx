@@ -188,7 +188,6 @@ function RegistroPage() {
       // Guardar datos del tenant en localStorage
       localStorage.setItem('tenant', JSON.stringify({
         tenant_id: data.tenant.tenant_id,
-        api_key: data.api_key,
         plan: data.tenant.plan,
         status: data.tenant.status,
         limits: data.tenant.limits,

@@ -43,7 +43,6 @@ export async function GET() {
 
     return NextResponse.json({ ok: true, items })
   } catch (err: any) {
-    // eslint-disable-next-line no-console
     console.warn('[MCP_INVOCATIONS_RECENT_ERROR]', err?.message)
     return NextResponse.json({ ok: false, error: 'fetch_error', message: err?.message || 'Unknown error' }, { status: 500 })
   }

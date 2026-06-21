@@ -161,7 +161,7 @@ export async function POST(request: Request) {
       businessName: razonSocial,
     })
 
-    // Éxito - retornar datos del tenant (sin información sensible persistida)
+    // Éxito - retornar datos públicos del tenant. La api_key queda solo en servidor/DB.
     return NextResponse.json({
       success: true,
       tenant: {
@@ -183,7 +183,6 @@ export async function POST(request: Request) {
         expires_at: phoneVerification.expires_at,
         error: phoneVerification.ok ? undefined : phoneVerification.error,
       },
-      api_key: data.api_key,
     })
 
   } catch (error) {
