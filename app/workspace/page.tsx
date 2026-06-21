@@ -4,9 +4,11 @@ import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useSupabaseUser } from "@/lib/supabase-auth-client"
 import { WorkspaceLayout } from "@/components/workspace/WorkspaceLayout"
+import { useWorkspaceBootstrap } from "@/lib/workspace-bootstrap-client"
 
 export default function WorkspacePage() {
   const { user, isLoaded } = useSupabaseUser()
+  const { tenant, isLoading, error } = useWorkspaceBootstrap()
   const router = useRouter()
 
   useEffect(() => {
@@ -15,7 +17,7 @@ export default function WorkspacePage() {
     }
   }, [isLoaded, user, router])
 
-  if (!isLoaded) {
+  if (!isLoaded || isLoading) {
     return (
       <div className="flex h-screen items-center justify-center bg-background">
         <div className="flex flex-col items-center gap-3">
@@ -28,5 +30,21 @@ export default function WorkspacePage() {
 
   if (!user) return null
 
-  return <WorkspaceLayout />
+  if (!tenant) {
+    router.push("/dashboard/tenant/new")
+    return null
+  }
+
+  if (error) {
+    return (
+      <div className="flex h-screen items-center justify-center bg-background px-6">
+        <div className="text-center">
+          <p className="text-sm font-medium">No se pudo resolver el tenant</p>
+          <p className="mt-2 text-sm text-muted-foreground">{error}</p>
+        </div>
+      </div>
+    )
+  }
+
+  return <WorkspaceLayout tenant={tenant} />
 }

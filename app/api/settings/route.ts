@@ -1,14 +1,13 @@
 import { NextResponse } from "next/server"
 import { auth } from "@/lib/auth"
-import { getSupabaseClient, upsertBusinessSettings, fetchBusinessSettings } from "@/lib/supabase"
+import { upsertBusinessSettings, fetchBusinessSettings } from "@/lib/business-settings-repository"
 
 export async function GET() {
   try {
     const { userId } = await auth()
     if (!userId) return NextResponse.json({ error: "No autorizado" }, { status: 401 })
 
-    const supabase = getSupabaseClient()
-    const { data, error } = await fetchBusinessSettings(supabase, userId)
+    const { data, error } = await fetchBusinessSettings(userId)
     if (error && error.code !== "PGRST116") {
       // PGRST116: row not found
       return NextResponse.json({ error: error.message }, { status: 500 })
@@ -35,8 +34,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Webhook URL debe comenzar con http:// o https://" }, { status: 400 })
     }
 
-    const supabase = getSupabaseClient()
-    const { data, error } = await upsertBusinessSettings(supabase, userId, { business_name, webhook_url })
+    const { data, error } = await upsertBusinessSettings(userId, { business_name, webhook_url })
     if (error) return NextResponse.json({ error: error.message }, { status: 500 })
 
     return NextResponse.json({ settings: data })

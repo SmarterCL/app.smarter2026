@@ -4,6 +4,7 @@ import { Suspense, useState } from "react"
 import { useSearchParams } from "next/navigation"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { createBrowserSupabaseClient } from "@/lib/supabase-browser"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -155,7 +156,7 @@ function RegistroPage() {
 
     try {
       // Llamar a API real para crear tenant
-      const response = await fetch('/api/tenant/create', {
+      const response = await fetch('/api/tenants/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -185,13 +186,16 @@ function RegistroPage() {
         throw new Error(data.error || 'Error al crear tu cuenta')
       }
 
-      // Guardar datos del tenant en localStorage
-      localStorage.setItem('tenant', JSON.stringify({
-        tenant_id: data.tenant.tenant_id,
-        plan: data.tenant.plan,
-        status: data.tenant.status,
-        limits: data.tenant.limits,
-      }))
+      const supabase = createBrowserSupabaseClient()
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email: formData.email,
+        password: formData.password,
+      })
+
+      if (signInError) {
+        router.push(`/login?email=${encodeURIComponent(formData.email)}`)
+        return
+      }
 
       // Redirigir a onboarding
       router.push('/dashboard/onboarding?new=true')

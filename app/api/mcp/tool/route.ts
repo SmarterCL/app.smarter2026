@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { auth } from '@/lib/auth';
 import { tenantTools } from '../../../../mcp/tools/supabase-tenants';
 import { fastapiTools } from '../../../../mcp/tools/fastapi-proxy';
-import { logMcpInvocation } from '../../../../lib/supabase';
+import { logMcpInvocation } from '../../../../lib/mcp-invocation-repository';
 
 export const dynamic = 'force-dynamic';
 

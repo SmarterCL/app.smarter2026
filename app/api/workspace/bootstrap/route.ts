@@ -1,6 +1,6 @@
 import { auth } from "@/lib/auth"
 import { NextResponse } from "next/server"
-import { listTenantsForUser } from "@/lib/supabase"
+import { listTenantsForUser } from "@/lib/tenant-repository"
 
 export async function GET() {
   try {
@@ -33,6 +33,7 @@ export async function GET() {
         business_name: tenant.business_name,
         contact_email: tenant.contact_email,
         auth_user_id: tenant.auth_user_id,
+        plan: tenant.plan,
         services_enabled: tenant.services_enabled,
         status: tenant.status,
         created_at: tenant.created_at,

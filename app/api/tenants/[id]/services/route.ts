@@ -1,7 +1,7 @@
 import { auth } from "@/lib/auth"
 import { NextResponse } from "next/server"
 import { z } from "zod"
-import { updateTenantServices } from "@/lib/supabase"
+import { updateTenantServices } from "@/lib/tenant-repository"
 
 const servicesUpdateSchema = z.object({
   crm: z.boolean().optional(),

@@ -7,21 +7,17 @@ const publicRoutes = [
   "/auth/callback",
   "/pricing",
   "/registro",
-  "/api/tenant/create",
   "/api/env/diagnostic",
   "/api/mcp/ping",
   "/api/health",
   "/api/contacts/test",
-  "/api/workflows",
 ]
 
 const protectedPrefixes = [
   "/dashboard",
   "/workspace",
-  "/api/tenant",
   "/api/tenants",
   "/api/qr",
-  "/api/flujos",
   "/api/chatwoot",
   "/api/waha",
   "/api/hermes",

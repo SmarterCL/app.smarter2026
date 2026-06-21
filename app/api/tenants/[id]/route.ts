@@ -1,6 +1,6 @@
 import { auth } from "@/lib/auth"
 import { NextResponse } from "next/server"
-import { getTenantById } from "@/lib/supabase"
+import { getTenantById } from "@/lib/tenant-repository"
 
 export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {

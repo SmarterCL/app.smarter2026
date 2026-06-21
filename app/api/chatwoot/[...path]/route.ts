@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 import { auth } from "@/lib/auth"
 import { createChatwootClient } from "@/lib/chatwoot-client"
-import { getTenantById } from "@/lib/supabase"
+import { getTenantById } from "@/lib/tenant-repository"
 
 /**
  * Chatwoot API Proxy

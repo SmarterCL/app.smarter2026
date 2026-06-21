@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { auth } from '@/lib/auth'
-import { listTenantsForUser, getTenantById as fetchTenantById, createTenant as createTenantLib, updateTenantServices as updateTenantServicesLib, type Tenant } from '../../lib/supabase'
+import { listTenantsForUser, getTenantById as fetchTenantById, createTenant as createTenantLib, updateTenantServices as updateTenantServicesLib, type Tenant } from '../../lib/tenant-repository'
 
 // Schemas
 export const TenantIdSchema = z.object({ id: z.string().uuid() })

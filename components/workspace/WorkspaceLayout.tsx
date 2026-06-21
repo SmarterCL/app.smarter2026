@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import {
   ResizablePanelGroup,
   ResizablePanel,
@@ -15,110 +15,24 @@ import { Button } from "@/components/ui/button"
 import { Settings, LogOut, Bell, QrCode } from "lucide-react"
 import { useSupabaseUser, SignOutButton } from "@/lib/supabase-auth-client"
 import Link from "next/link"
-import { TenantWizard } from "@/components/tenant-wizard"
+import type { WorkspaceBootstrapTenant } from "@/lib/workspace-bootstrap-client"
 
 type WahaStatus = "connected" | "pending" | "disconnected" | "unknown"
 
-async function readJsonSafely(response: Response) {
-  const contentType = response.headers.get("content-type") || ""
-  if (contentType.includes("application/json")) {
-    return response.json()
-  }
-
-  const text = await response.text()
-  return {
-    error: text || `Respuesta inválida (${response.status})`,
-    raw: text,
-  }
-}
-
-export function WorkspaceLayout() {
+export function WorkspaceLayout({ tenant }: { tenant: WorkspaceBootstrapTenant }) {
   const { user } = useSupabaseUser()
   const [selectedConversationId, setSelectedConversationId] = useState<number | null>(null)
   const [selectedContactId, setSelectedContactId] = useState<number | null>(null)
   const [wahaStatus, setWahaStatus] = useState<WahaStatus>("unknown")
   const [showQrModal, setShowQrModal] = useState(false)
-  const [tenantId, setTenantId] = useState<string | null>(null)
-  const [tenantName, setTenantName] = useState<string | null>(null)
-  const [bootstrapLoading, setBootstrapLoading] = useState(true)
-  const [bootstrapError, setBootstrapError] = useState<string | null>(null)
-
-  useEffect(() => {
-    let mounted = true
-
-    const loadBootstrap = async () => {
-      try {
-        setBootstrapLoading(true)
-        const res = await fetch("/api/workspace/bootstrap")
-        const data = await readJsonSafely(res)
-
-        if (!mounted) return
-
-        if (!res.ok || !data?.tenant?.id) {
-          const message = data?.error || "No se pudo resolver el tenant"
-          setBootstrapError(message)
-          setTenantId(null)
-          setTenantName(null)
-          return
-        }
-
-        setTenantId(data.tenant.id)
-        setTenantName(data.tenant.business_name || data.tenant.id)
-        setBootstrapError(null)
-      } catch (error) {
-        if (!mounted) return
-        setBootstrapError(error instanceof Error ? error.message : "Error cargando workspace")
-      } finally {
-        if (mounted) setBootstrapLoading(false)
-      }
-    }
-
-    loadBootstrap()
-
-    return () => {
-      mounted = false
-    }
-  }, [])
 
   const handleConversationSelect = (conversationId: number, contactId?: number) => {
     setSelectedConversationId(conversationId)
     if (contactId) setSelectedContactId(contactId)
   }
 
-  if (bootstrapLoading) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-background">
-        <div className="flex flex-col items-center gap-3">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary border-t-transparent" />
-          <p className="text-sm text-muted-foreground">Cargando consola...</p>
-        </div>
-      </div>
-    )
-  }
-
-  if (bootstrapError || !tenantId) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-background px-6">
-        <div className="w-full max-w-4xl space-y-4 rounded-lg border bg-card p-6 shadow-sm">
-          <div className="text-center">
-            <p className="text-sm font-medium">No hay tenant operativo para este usuario</p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              {bootstrapError || "Crea el tenant aquí mismo para seguir sin salir del workspace."}
-            </p>
-          </div>
-          <TenantWizard />
-          <div className="text-center">
-            <SignOutButton>
-              <Button variant="outline" size="sm" className="gap-2">
-                <LogOut className="h-4 w-4" />
-                Cerrar sesión
-              </Button>
-            </SignOutButton>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  const tenantId = tenant.tenant_id
+  const tenantName = tenant.business_name || tenant.name || tenant.tenant_id
 
   return (
     <div className="flex h-screen flex-col bg-background">

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { auth } from "@/lib/auth"
-import { listTenantsForUser } from "@/lib/supabase"
+import { listTenantsForUser } from "@/lib/tenant-repository"
 
 const SMARTER_API_BASE_URLS = [
   process.env.SMARTER_API_URL,

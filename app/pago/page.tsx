@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Loader2, CheckCircle } from "lucide-react"
 import { PLANS, type PlanId } from "@/lib/plans"
+import { useWorkspaceBootstrap } from "@/lib/workspace-bootstrap-client"
 
 export default function PagoPageWrapper() {
   return (
@@ -25,32 +26,21 @@ export default function PagoPageWrapper() {
 function PagoPage() {
   const searchParams = useSearchParams()
   const router = useRouter()
+  const { tenant, isLoading: tenantLoading } = useWorkspaceBootstrap()
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
   const [paymentUrl, setPaymentUrl] = useState("")
-  const [email, setEmail] = useState("")
   const [couponCode, setCouponCode] = useState(searchParams.get("coupon") || "")
 
   const planId = (searchParams.get("plan") || "starter") as PlanId
-  const tenantId = searchParams.get("tenant")
+  const tenantId = searchParams.get("tenant") || tenant?.tenant_id
   const plan = PLANS[planId] || PLANS.starter
 
   useEffect(() => {
-    if (!tenantId) {
-      router.push("/registro")
+    if (!tenantLoading && !tenant) {
+      router.push("/dashboard/tenant/new")
     }
-  }, [tenantId, router])
-
-  useEffect(() => {
-    try {
-      const tenantData = localStorage.getItem("tenant")
-      if (!tenantData) return
-      const parsed = JSON.parse(tenantData)
-      setEmail(parsed?.contact_email || parsed?.email || "")
-    } catch {
-      // noop
-    }
-  }, [])
+  }, [tenant, tenantLoading, router])
 
   const handlePago = async () => {
     setIsLoading(true)
@@ -65,7 +55,7 @@ function PagoPage() {
         body: JSON.stringify({
           tenant_id: tenantId,
           plan: planId,
-          email,
+          email: tenant?.contact_email || "",
           coupon_code: couponCode || undefined,
           concepto: `Activación Plan ${plan.name} - SmarterBot QR`,
         }),
@@ -187,9 +177,10 @@ function PagoPage() {
                 <input
                   className="w-full rounded-md border bg-background px-3 py-2 text-sm"
                   type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={tenant?.contact_email || ""}
+                  onChange={() => undefined}
                   placeholder="facturacion@tuempresa.cl"
+                  readOnly
                 />
               </div>
               <div className="space-y-2">
@@ -207,12 +198,12 @@ function PagoPage() {
               El cupón se aplica antes de enviar el total a Flow. Si cubre el setup, pagarás solo la mensualidad.
             </p>
 
-            <Button
-              onClick={handlePago}
-              className="w-full"
-              size="lg"
-              disabled={isLoading || !!paymentUrl || !email}
-            >
+              <Button
+                onClick={handlePago}
+                className="w-full"
+                size="lg"
+                disabled={isLoading || !!paymentUrl || !tenant?.contact_email}
+              >
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
