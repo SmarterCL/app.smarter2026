@@ -1,0 +1,27 @@
+node_modules
+npm-debug.log
+.next
+.git
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+*.bak-*
+graphify-out
+graphify-auth-visual
+.agents
+.codex
+caddy_data
+caddy_config
+
+# Non-runtime documentation and analysis artifacts. Keep them in the repo, but
+# do not send them to Docker when building the production container.
+*.md
+!MEMORIA_GRAPHIFY.md
+specs
+assets/workflows
+openclaw-skills
+smarter-mcp-server
+websocket-gateway

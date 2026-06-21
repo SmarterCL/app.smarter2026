@@ -1,0 +1,51 @@
+services:
+  smarteros-workspace:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL}
+        NEXT_PUBLIC_SUPABASE_ANON_KEY: ${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+        NEXT_PUBLIC_DEMO_MODE: ${NEXT_PUBLIC_DEMO_MODE:-false}
+    container_name: smarteros-workspace
+    restart: unless-stopped
+    ports:
+      - "3060:3060"
+    environment:
+      - NODE_ENV=production
+      - PORT=3060
+      - NEXT_TELEMETRY_DISABLED=1
+      - HOSTNAME=0.0.0.0
+      # Supabase
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
+      - SMARTEROS_AUTH_MODE=supabase
+      # Chatwoot
+      - CHATWOOT_BASE_URL=http://chatwoot:3000
+      - CHATWOOT_ACCOUNT_ID=1
+      - CHATWOOT_ACCESS_TOKEN=${CHATWOOT_ACCESS_TOKEN}
+      # SmarterAPI
+      - SMARTER_API_URL=http://host.docker.internal:8090
+      - SERVICE_API_KEY=${SERVICE_API_KEY}
+      # Hermes
+      - HERMES_API_URL=http://hermes-gateway:8642
+      - HERMES_API_KEY=${HERMES_API_KEY}
+      # Demo mode
+      - NEXT_PUBLIC_DEMO_MODE=false
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - smarter-net
+      - chatwoot-net
+
+networks:
+  smarter-net:
+    external: true
+  chatwoot-net:
+    external: true
+    name: chatwoot-fix_smarter-net

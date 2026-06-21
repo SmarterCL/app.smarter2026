@@ -1,0 +1,11 @@
+{
+  auto_https off
+}
+
+smarteros.localhost:80 {
+  reverse_proxy smarteros-workspace:3060
+}
+
+localhost:3080 {
+  reverse_proxy smarteros-workspace:3060
+}

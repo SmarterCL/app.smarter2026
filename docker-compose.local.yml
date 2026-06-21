@@ -1,0 +1,41 @@
+services:
+  smarteros-workspace:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_SUPABASE_URL: http://localhost:54321
+        NEXT_PUBLIC_SUPABASE_ANON_KEY: sb_publishable_ACJWlzQHlZjBrEguHvfOxg_3BJgxAaH
+        NEXT_PUBLIC_DEMO_MODE: "false"
+    container_name: smarteros-workspace
+    restart: unless-stopped
+    env_file:
+      - .env.local
+    environment:
+      NODE_ENV: production
+      PORT: 3060
+      NEXT_TELEMETRY_DISABLED: 1
+      HOSTNAME: 0.0.0.0
+    expose:
+      - "3060"
+    ports:
+      - "3060:3060"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: smarteros-workspace-caddy
+    restart: unless-stopped
+    depends_on:
+      - smarteros-workspace
+    ports:
+      - "3080:80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:
