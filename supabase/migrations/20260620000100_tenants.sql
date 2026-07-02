@@ -89,10 +89,7 @@ CREATE POLICY "Service role has full access" ON tenants
 -- Allow users to read their own tenant
 CREATE POLICY "Users can read own tenant" ON tenants
   FOR SELECT USING (
-    EXISTS (
-      SELECT 1 FROM tenants t
-      WHERE t.api_key = current_setting('app.current_api_key', TRUE)
-    )
+    api_key = current_setting('app.current_api_key', TRUE)
   );
 
 -- Function to increment scan count
